@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nguyen Van Viet Dung</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ===== HEADER: tên + menu ===== -->
+    <header class="header">
+        <a href="#top" class="logo">NGUYEN VAN VIET DUNG</a>
+        <nav class="menu">
+            <a href="#about">About Me</a>
+            <a href="#chapter-1">Econ &amp; Tech</a>
+            <a href="#chapter-2">Art &amp; Photography</a>
+            <a href="#chapter-3">Volunteer</a>
+            <a href="#chapter-4">Achievements</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main id="top">
+
+        <!-- Ảnh ở Home, Chapter 1 - 3 là ảnh mẫu, Chapter 4 là ảnh thật -->
+
+        <!-- ===== PHẦN GIỚI THIỆU (Hero) ===== -->
+        <section class="hero" id="about">
+            <h1>Hello, It's ... here</h1>
+
+            <!-- Đoạn giới thiệu bản thân (khoảng 50 - 60 từ) -->
+            <p>
+                What is the oppotunity cost that I will have after 21?
+                I wish It won't be my time with my family, my friend, and myself for majority.
+                The immese mission that I'd love to chase is about to push me ...
+            </p>
+
+            <!-- Nút trỏ sang resume: thay dấu # bằng link Google Drive -->
+            <a href="#" class="button" target="_blank">My Resume</a>
+        </section>
+
+        <!-- ===== CÂU CHUYỆN: THỜI THƠ ẤU (1 - 10 tuổi) ===== -->
+        <section class="story">
+            <!-- Câu quote ngắn -->
+            <p class="quote">
+                Câu quote ngắn về thời thơ ấu
+            </p>
+
+            <div class="story-row">
+                <div class="story-text">
+                    <!-- Nội dung khoảng 500 - 600 từ. Nhiều đoạn thì thêm nhiều thẻ <p> -->
+                    <p>
+                        Kể về thời thơ ấu 1 - 10 tuổi: gia đình, bố mẹ, anh chị em...
+                    </p>
+                </div>
+
+                <img src="images/tho-au.jpg" alt="Hình ảnh hồi nhỏ">
+            </div>
+        </section>
+
+        <!-- ===== CÂU CHUYỆN: 10 - 15 TUỔI, ĐAM MÊ CHUYÊN NGÀNH ===== -->
+        <section class="story story-gray">
+            <p class="quote">
+                Câu quote ngắn về giai đoạn 10 - 15 tuổi
+            </p>
+
+            <!-- Class "reverse" để ảnh nằm bên trái cho đỡ nhàm -->
+            <div class="story-row reverse">
+                <div class="story-text">
+                    <!-- Khoảng 500 - 600 từ, chỉ nên kể 2 - 3 câu chuyện có liên kết -->
+                    <p>
+                        Kể về những bước khởi đầu đam mê chuyên ngành: trải nghiệm, nơi đã đến, hoạt động...
+                    </p>
+                </div>
+
+                <img src="images/hoc-tap-10-15-tuoi.jpg" alt="Hình ảnh học tập hồi 10 - 15 tuổi">
+            </div>
+        </section>
+
+        <!-- ===== CÂU CHUYỆN: ĐAM MÊ VĂN HOÁ - NGHỆ THUẬT - THỂ THAO - XÃ HỘI ===== -->
+        <section class="story">
+            <p class="quote">
+                Câu quote ngắn về đam mê, sở thích
+            </p>
+
+            <div class="story-row">
+                <div class="story-text">
+                    <!-- Khoảng 300 - 400 từ, chỉ nên kể 1 - 2 câu chuyện -->
+                    <p>
+                        Kể về đam mê văn hoá - nghệ thuật - thể thao - xã hội...
+                    </p>
+                </div>
+
+                <img src="images/dam-me-so-thich.jpg" alt="Hình ảnh đam mê sở thích">
+            </div>
+        </section>
+
+        <!-- ===== TƯƠNG LAI (sau 15 tuổi) ===== -->
+        <section class="story story-gray center">
+            <p class="quote">
+                Câu quote ngắn về tương lai
+            </p>
+
+            <!-- Khoảng 70 - 100 từ -->
+            <p>
+                Tổng hợp những khát vọng, đam mê hướng tới các hoạt động sau 15 tuổi
+            </p>
+        </section>
+
+        <!-- ===== DANH SÁCH CHAPTER ===== -->
+        <section class="chapters" id="chapters">
+            <h2>Hãy cùng khám phá những đóng góp của tôi</h2>
+
+            <!-- Bấm vào card sẽ nhảy xuống chapter tương ứng -->
+            <div class="chapter-list">
+                <a href="#chapter-1" class="chapter-card">
+                    <span>CHAPTER 1</span>
+                    <p>ECONOMICS &amp; TECH</p>
+                </a>
+                <a href="#chapter-2" class="chapter-card">
+                    <span>CHAPTER 2</span>
+                    <p>ART &amp; PHOTOGRAPHY</p>
+                </a>
+                <a href="#chapter-3" class="chapter-card">
+                    <span>CHAPTER 3</span>
+                    <p>VOLUNTEER</p>
+                </a>
+                <a href="#chapter-4" class="chapter-card">
+                    <span>CHAPTER 4</span>
+                    <p>ACHIEVEMENTS</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             CHAPTER 1: ECONOMICS + TECH
+             Mỗi hoạt động gồm: tên (h4) + đoạn kể (p) + ảnh.
+             Hoạt động chẵn thêm class "reverse" để ảnh đổi bên.
+             ===================================================== -->
+        <section class="chapter" id="chapter-1">
+            <div class="chapter-head">
+                <span>CHAPTER 1</span>
+                <h2>ECONOMICS &amp; TECH</h2>
+            </div>
+
+            <!-- ----- Nhóm ECONOMICS ----- -->
+            <h3 class="group-title">ECONOMICS</h3>
+
+            <!-- Hoạt động 1 -->
+            <div class="story-row activity">
+                <div class="story-text">
+                    <h4>Start-up</h4>
+                    <p>
+                        Kể về quá trình từ đầu đến cuối làm hoạt động này
+                    </p>
+                </div>
+                <img src="images/econ-startup.jpg" alt="Hoạt động Start-up">
+            </div>
+
+            <!-- Hoạt động 2 -->
+            <div class="story-row activity reverse">
+                <div class="story-text">
+                    <h4>Head of Finance Department, Youngpreneurs Ecosystem Vietnam</h4>
+                    <p>
+                        Kể về quá trình từ đầu đến cuối làm hoạt động này
+                    </p>
+                </div>
+                <img src="images/econ-youngpreneurs-head-of-finance.jpg" alt="Head of Finance Department, Youngpreneurs Ecosystem Vietnam">
+            </div>
+
+            <!-- Hoạt động 3 -->
+            <div class="story-row activity">
+                <div class="story-text">
+                    <h4>Co-Author, "Assessing the impact of technological interventions on the reduction of care costs for children with ADHD in Vietnam"</h4>
+                    <p>
+                        Kể về quá trình từ đầu đến cuối làm hoạt động này
+                    </p>
+                </div>
+                <img src="images/econ-nghien-cuu-chi-phi-cham-soc-adhd.jpg" alt="Bài nghiên cứu về chi phí chăm sóc trẻ ADHD">
+            </div>
+
+            <!-- Hoạt động 4 -->
+            <div class="story-row activity reverse">
+                <div class="story-text">
+                    <h4>Deputy Head of Academic Department, The Logos</h4>
+                    <p>
+                        Kể về quá trình từ đầu đến cuối làm hoạt động này
+                    </p>
+                </div>
+                <img src="images/econ-the-logos-deputy-head.jpg" alt="Deputy Head of Academic Department, The Logos">
+            </div>
+
+            <!-- Hoạt động 5 -->
+            <div class="story-row activity">
+                <div class="story-text">
+                    <h4>Sales Intern, SQMEX Corporation</h4>
+                    <p>
+                        Kể về quá trình làm hoạt động này. Quan trọng: em học được gì, có góc nhìn mới mẻ thú vị nào
+                    </p>
+                </div>
+                <img src="images/econ-sqmex-sales-intern.jpg" alt="Sales Intern, SQMEX Corporation">
+            </div>
+
+            <!-- Hoạt động 6 -->
+            <div class="story-row activity reverse">
+                <div class="story-text">
+                    <h4>Account Intern, KATA Corporation</h4>
+                    <p>
+                        Kể về quá trình làm hoạt động này. Quan trọng: em học được gì, có góc nhìn mới mẻ thú vị nào
+                    </p>
+                </div>
+                <img src="images/econ-kata-account-intern.jpg" alt="Account Intern, KATA Corporation">
+            </div>
+
+            <!-- ----- Nhóm TECH ----- -->
+            <h3 class="group-title">TECH</h3>
+
+            <!-- Hoạt động 1 -->
+            <div class="story-row activity">
+                <div class="story-text">
+                    <h4>Inventor, ADHD CareMate</h4>
+                    <p>
+                        Kể về quá trình làm hoạt động này. Quan trọng: em học được gì, có góc nhìn mới mẻ thú vị nào
+                    </p>
+                </div>
+                <img src="images/tech-adhd-caremate.jpg" alt="Inventor, ADHD CareMate">
+            </div>
+
+            <!-- Hoạt động 2 -->
+            <div class="story-row activity reverse">
+                <div class="story-text">
+                    <h4>Co-Author, "Beyond Adoption Intention: How Trust in Augmented Analytics Relates to Perceived Decision Quality Among Non-Technical BI Users"</h4>
+                    <p>
+                        Kể về quá trình làm hoạt động này. Quan trọng: em học được gì, có góc nhìn mới mẻ thú vị nào
+                    </p>
+                </div>
+                <img src="images/tech-nghien-cuu-augmented-analytics.jpg" alt="Bài nghiên cứu Augmented Analytics">
+            </div>
+        </section>
+
+        <!-- =====================================================
+             CHAPTER 2: ART & PHOTOGRAPHY
+             Theo Sheets: trình bày như 1 gallery.
+             Thêm ảnh thì copy thêm dòng <img> vào trong .gallery
+             ===================================================== -->
+        <section class="chapter chapter-gray" id="chapter-2">
+            <div class="chapter-head">
+                <span>CHAPTER 2</span>
+                <h2>ART &amp; PHOTOGRAPHY</h2>
+            </div>
+
+            <!-- Hoạt động 1 -->
+            <div class="gallery-block">
+                <h3 class="group-title">Tổng hợp các tranh digital</h3>
+                <p>
+                    Kể về quá trình từ đầu đến cuối làm hoạt động này
+                </p>
+                <div class="gallery">
+                    <img src="images/art-tranh-digital-1.jpg" alt="Tranh digital 1">
+                    <img src="images/art-tranh-digital-2.jpg" alt="Tranh digital 2">
+                    <img src="images/art-tranh-digital-3.jpg" alt="Tranh digital 3">
+                </div>
+            </div>
+
+            <!-- Hoạt động 2 -->
+            <div class="gallery-block">
+                <h3 class="group-title">Tổng hợp lại các bức hình đã chụp</h3>
+                <p>
+                    Kể về quá trình từ đầu đến cuối làm hoạt động này
+                </p>
+                <div class="gallery">
+                    <img src="images/photo-anh-chup-1.jpg" alt="Ảnh đã chụp 1">
+                    <img src="images/photo-anh-chup-2.jpg" alt="Ảnh đã chụp 2">
+                    <img src="images/photo-anh-chup-3.jpg" alt="Ảnh đã chụp 3">
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             CHAPTER 3: VOLUNTEER (hướng đến trẻ em ADHD)
+             ===================================================== -->
+        <section class="chapter" id="chapter-3">
+            <div class="chapter-head">
+                <span>CHAPTER 3</span>
+                <h2>VOLUNTEER</h2>
+            </div>
+
+            <!-- Hoạt động 1 -->
+            <div class="story-row activity">
+                <div class="story-text">
+                    <h4>Founder, Mentorion - VN25</h4>
+                    <p>
+                        Kể về quá trình từ đầu đến cuối làm hoạt động này
+                    </p>
+                </div>
+                <img src="images/volunteer-mentorion-vn25.jpg" alt="Founder, Mentorion - VN25">
+            </div>
+
+            <!-- Hoạt động 2 -->
+            <div class="story-row activity reverse">
+                <div class="story-text">
+                    <h4>Đi thiện nguyện mùa lũ</h4>
+                    <p>
+                        Kể về quá trình từ đầu đến cuối làm hoạt động này
+                    </p>
+                </div>
+                <img src="images/volunteer-thien-nguyen-mua-lu.jpg" alt="Đi thiện nguyện mùa lũ">
+            </div>
+
+            <!-- Hoạt động 3 -->
+            <div class="story-row activity">
+                <div class="story-text">
+                    <h4>Thiện nguyện đi cùng AS</h4>
+                    <p>
+                        Kể về quá trình từ đầu đến cuối làm hoạt động này
+                    </p>
+                </div>
+                <img src="images/volunteer-thien-nguyen-cung-as.jpg" alt="Thiện nguyện đi cùng AS">
+            </div>
+        </section>
+
+        <!-- =====================================================
+             CHAPTER 4: ACHIEVEMENTS
+             Theo Sheets: chỉ show hình ảnh + certificate,
+             chèn text diễn giải bên dưới (class "caption").
+             ===================================================== -->
+        <section class="chapter chapter-gray" id="chapter-4">
+            <div class="chapter-head">
+                <span>CHAPTER 4</span>
+                <h2>ACHIEVEMENTS</h2>
+            </div>
+
+            <div class="award-list">
+
+                <div class="award-card">
+                    <img src="images/nmo-2024-first-prize-certificate.jpg" alt="Certificate First Prize, National Mathematical Olympiad for Students 2024">
+                    <p class="caption"><strong>First Prize</strong><br>National Mathematical Olympiad for Students 2024</p>
+                </div>
+
+                <div class="award-card">
+                    <img src="images/stem-2024-gold-math-certificate.jpg" alt="Certificate Gold Medal in Mathematics, STEM Olympiad 2024">
+                    <p class="caption"><strong>Gold Medal in Mathematics</strong><br>The International STEM Olympiad in the Netherlands 2024</p>
+                </div>
+
+                <div class="award-card">
+                    <img src="images/stem-2024-gold-science-certificate.jpg" alt="Certificate Gold Medal in Science, STEM Olympiad 2024">
+                    <p class="caption"><strong>Gold Medal in Science</strong><br>The International STEM Olympiad in the Netherlands 2024</p>
+                </div>
+
+                <div class="award-card">
+                    <img src="images/stem-2024-gold-1st-place-certificate.jpg" alt="Certificate Gold Medal và 1st Place, STEM Olympiad 2024">
+                    <p class="caption"><strong>Gold Medal &amp; 1st Place</strong><br>The International STEM Olympiad 2024</p>
+                </div>
+
+                <div class="award-card">
+                    <img src="images/veo-2025-third-prize-certificate.jpg" alt="Vietnam Economics Olympiad 2025">
+                    <p class="caption"><strong>Third Prize</strong><br>Vietnam Economics Olympiad 2025</p>
+                </div>
+
+                <div class="award-card">
+                    <img src="images/tournament-of-towns-2024-silver-certificate.jpg" alt="45th International Mathematics Tournament of the Towns 2024">
+                    <p class="caption"><strong>Silver Medal</strong><br>45th International Mathematics Tournament of the Towns 2024</p>
+                </div>
+
+                <div class="award-card">
+                    <img src="images/hung-vuong-camp-gold-certificate.jpg" alt="Hung Vuong Summer Camp in Hoa Binh Province">
+                    <p class="caption"><strong>Gold Medal</strong><br>Hung Vuong Summer Camp in Hoa Binh Province</p>
+                </div>
+
+                <div class="award-card">
+                    <img src="images/wmtc-2022-silver-certificate.jpg" alt="World Mathematics Team Championship 2022">
+                    <p class="caption"><strong>Silver Medal</strong><br>World Mathematics Team Championship 2022</p>
+                </div>
+
+                <div class="award-card">
+                    <img src="images/imo-2022-bronze-certificate.jpg" alt="Certificate Bronze Medal, International Mathematics Olympiad 2022">
+                    <p class="caption"><strong>Bronze Medal</strong><br>International Mathematics Olympiad 2022</p>
+                </div>
+
+                <div class="award-card">
+                    <img src="images/hanoi-lop-9-second-prize-certificate.jpg" alt="Hanoi Competition for Gifted Students Grade 9">
+                    <p class="caption"><strong>Second Prize</strong><br>Hanoi Competition for Gifted Students in Social and Science Subjects in Grade 9</p>
+                </div>
+
+                <div class="award-card">
+                    <img src="images/hanoi-lop-12-second-prize-certificate.jpg" alt="Hanoi Competition for Gifted Students Grade 12">
+                    <p class="caption"><strong>Second Prize</strong><br>Hanoi Competition for Gifted Students in Social Subjects in Grade 12</p>
+                </div>
+
+            </div>
+
+            <!-- Ảnh sự kiện thêm (lấy từ website mẫu) -->
+            <h3 class="group-title">Moments</h3>
+            <div class="gallery">
+                <img src="images/nmo-2024-anh-su-kien-1.jpg" alt="National Mathematical Olympiad 2024 - ảnh sự kiện">
+                <img src="images/nmo-2024-anh-su-kien-2.jpg" alt="National Mathematical Olympiad 2024 - ảnh sự kiện">
+                <img src="images/le-vinh-danh-olympic-1.jpg" alt="Lễ vinh danh học sinh đạt giải Olympic quốc tế">
+                <img src="images/le-vinh-danh-olympic-2.jpg" alt="Lễ vinh danh học sinh đạt giải Olympic quốc tế">
+                <img src="images/wmtc-2022-le-trao-giai.jpg" alt="World Mathematics Team Championship 2022 - ảnh sự kiện">
+                <img src="images/imo-2022-anh-su-kien-1.jpg" alt="International Mathematics Olympiad 2022 - ảnh sự kiện">
+                <img src="images/imo-2022-anh-su-kien-2.jpg" alt="International Mathematics Olympiad 2022 - ảnh sự kiện">
+                <img src="images/stem-2024-anh-su-kien-1.jpg" alt="STEM Olympiad Netherlands 2024 - ảnh sự kiện">
+                <img src="images/stem-2024-anh-su-kien-2.jpg" alt="STEM Olympiad Netherlands 2024 - ảnh sự kiện">
+                <img src="images/stem-2024-anh-su-kien-3.jpg" alt="STEM Olympiad Netherlands 2024 - ảnh sự kiện">
+                <img src="images/stem-2024-anh-su-kien-4.jpg" alt="STEM Olympiad Netherlands 2024 - ảnh sự kiện">
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER: thông tin liên hệ ===== -->
+    <footer class="footer" id="contact">
+        <h2>NGUYEN VAN VIET DUNG</h2>
+        <p class="slogan">Light your life with Science and Responsibility</p>
+        <p>Email: <a href="mailto:nhi@gmail.com">nhi@gmail.com</a></p>
+        <!-- Khi có thông tin thì bỏ dấu comment 2 dòng dưới và điền vào -->
+        <!-- <p>Phone: </p> -->
+        <!-- <p>Address: </p> -->
+    </footer>
+
+</body>
+</html>

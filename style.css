@@ -1,0 +1,484 @@
+/* =========================================================
+   1. BIẾN MÀU
+   Khai báo màu 1 lần ở đây, các chỗ khác gọi bằng var(--tên).
+   Muốn đổi màu cả web thì chỉ cần sửa ở đây.
+   ========================================================= */
+:root {
+    --navy: #1c1c96;       /* màu chính: xanh navy (tiêu đề, nút, viền) */
+    --navy-light: #5252ae; /* navy nhạt: màu nút khi rê chuột */
+    --gray-bg: #f4f4f4;    /* nền xám nhạt cho các section xen kẽ */
+    --text: #20303c;       /* màu chữ thường */
+    --white: #ffffff;
+}
+
+/* =========================================================
+   2. THIẾT LẬP CHUNG CHO CẢ TRANG
+   ========================================================= */
+
+/* Xoá khoảng cách mặc định của trình duyệt.
+   box-sizing: border-box để width đã tính luôn padding + border */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Bấm menu thì trang cuộn mượt xuống section, không nhảy giật */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Font, cỡ chữ và màu chữ mặc định cho toàn trang */
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;      /* khoảng cách dòng rộng cho dễ đọc */
+    color: var(--text);
+    background: var(--white);
+}
+
+/* Ảnh luôn co giãn theo khung chứa, không bị tràn ra ngoài */
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+a {
+    color: var(--navy);
+}
+
+/* Kiểu chung cho các tiêu đề */
+h1, h2, h3 {
+    color: var(--navy);
+    font-weight: normal;
+    line-height: 1.3;
+}
+
+/* =========================================================
+   3. HEADER: tên bên trái, menu bên phải
+   ========================================================= */
+.header {
+    position: sticky;      /* header dính trên cùng khi cuộn trang */
+    top: 0;
+    z-index: 10;           /* nằm đè lên nội dung bên dưới */
+    display: flex;         /* xếp tên và menu nằm ngang */
+    justify-content: space-between; /* đẩy tên sang trái, menu sang phải */
+    align-items: center;
+    flex-wrap: wrap;       /* màn hình hẹp thì menu tự xuống dòng */
+    gap: 10px;
+    padding: 18px 40px;
+    background: var(--white);
+    border-bottom: 1px solid #e5e5e5;
+}
+
+/* Tên ở góc trái */
+.logo {
+    font-size: 20px;
+    letter-spacing: 2px;   /* giãn chữ cho sang */
+    text-decoration: none; /* bỏ gạch chân của link */
+}
+
+/* Các link trong menu xếp ngang, cách nhau 25px */
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.menu a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 15px;
+}
+
+/* Rê chuột vào link thì đổi màu navy */
+.menu a:hover {
+    color: var(--navy);
+}
+
+/* =========================================================
+   4. HERO: phần giới thiệu đầu trang
+   ========================================================= */
+.hero {
+    padding: 100px 20px;
+    text-align: center;
+    background: var(--gray-bg);
+}
+
+/* Dòng "Hello, It's ... here" */
+.hero h1 {
+    font-size: 56px;
+    margin-bottom: 25px;
+}
+
+/* Đoạn giới thiệu: giới hạn 700px để dòng không quá dài */
+.hero p {
+    max-width: 700px;
+    margin: 0 auto 35px;   /* auto 2 bên để căn giữa */
+}
+
+/* Nút "My Resume" bo tròn */
+.button {
+    display: inline-block;
+    padding: 12px 36px;
+    background: var(--navy);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 30px;
+}
+
+.button:hover {
+    background: var(--navy-light);
+}
+
+/* =========================================================
+   5. CÁC PHẦN CÂU CHUYỆN (thơ ấu, 10 - 15 tuổi, sở thích, tương lai)
+   ========================================================= */
+.story {
+    padding: 80px 20px;
+}
+
+/* Section nền xám, dùng xen kẽ với nền trắng */
+.story-gray {
+    background: var(--gray-bg);
+}
+
+/* Căn giữa toàn bộ chữ (dùng cho phần Tương lai) */
+.center {
+    text-align: center;
+}
+
+.center p {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Câu quote: chữ to, nghiêng, màu navy, căn giữa */
+.quote {
+    max-width: 800px;
+    margin: 0 auto 40px !important; /* !important để không bị style p khác ghi đè */
+    font-size: 26px;
+    font-style: italic;
+    color: var(--navy);
+    text-align: center;
+}
+
+/* Hàng gồm chữ bên trái + ảnh bên phải */
+.story-row {
+    display: flex;
+    gap: 50px;             /* khoảng cách giữa chữ và ảnh */
+    align-items: center;   /* chữ và ảnh căn giữa theo chiều dọc */
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Thêm class "reverse" thì đảo lại: ảnh bên trái, chữ bên phải */
+.story-row.reverse {
+    flex-direction: row-reverse;
+}
+
+/* flex: 1 để phần chữ và ảnh chia đều chiều ngang */
+.story-text {
+    flex: 1;
+}
+
+/* Các đoạn văn cách nhau 16px */
+.story-text p {
+    margin-bottom: 16px;
+}
+
+.story-row img {
+    flex: 1;
+    max-width: 480px;      /* ảnh không to quá 480px */
+}
+
+/* =========================================================
+   6. DANH SÁCH 4 CHAPTER (card bấm để nhảy xuống)
+   ========================================================= */
+.chapters {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.chapters h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+/* Dùng Grid chia 4 cột bằng nhau */
+.chapter-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Mỗi card có viền navy */
+.chapter-card {
+    padding: 30px 20px;
+    border: 1px solid var(--navy);
+    color: var(--text);
+    text-decoration: none;
+}
+
+/* Chữ "CHAPTER 1, 2..." in đậm, nằm trên 1 dòng riêng */
+.chapter-card span {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--navy);
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Rê chuột vào card: nền navy, chữ trắng */
+a.chapter-card:hover {
+    background: var(--navy);
+    color: var(--white);
+}
+
+a.chapter-card:hover span {
+    color: var(--white);
+}
+
+/* =========================================================
+   7. NỘI DUNG CÁC CHAPTER 1 - 3
+   ========================================================= */
+.chapter {
+    padding: 80px 20px;
+}
+
+/* Chapter nền xám, xen kẽ với chapter nền trắng */
+.chapter-gray {
+    background: var(--gray-bg);
+}
+
+/* Tiêu đề chapter: chữ "CHAPTER 1" nhỏ ở trên, tên chapter to ở dưới */
+.chapter-head {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.chapter-head span {
+    color: var(--navy-light);
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.chapter-head h2 {
+    font-size: 44px;
+    letter-spacing: 3px;
+}
+
+/* Tên nhóm (ECONOMICS, TECH, tên gallery...) có gạch chân navy */
+.group-title {
+    max-width: 1100px;
+    margin: 60px auto 30px;
+    padding-bottom: 10px;
+    font-size: 26px;
+    letter-spacing: 2px;
+    border-bottom: 2px solid var(--navy);
+}
+
+/* Mỗi hoạt động cách nhau 60px */
+.activity {
+    margin-bottom: 60px;
+}
+
+/* Tên hoạt động */
+.activity h4 {
+    margin-bottom: 12px;
+    font-size: 21px;
+    color: var(--navy);
+    font-weight: bold;
+    line-height: 1.4;
+}
+
+/* Khối gallery của Chapter 2 (tiêu đề + đoạn văn + lưới ảnh) */
+.gallery-block {
+    max-width: 1100px;
+    margin: 0 auto 40px;
+}
+
+.gallery-block p {
+    margin-bottom: 25px;
+}
+
+/* Lưới ảnh 3 cột (dùng ở Chapter 2 và phần Moments) */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Cố định chiều cao ảnh cho đều nhau.
+   object-fit: cover = ảnh lấp đầy khung, phần thừa bị cắt bớt */
+.gallery img {
+    height: 260px;
+    object-fit: cover;
+}
+
+/* =========================================================
+   8. CHAPTER 4: ACHIEVEMENTS (card giấy khen + chữ bên dưới)
+   ========================================================= */
+
+/* Lưới 3 cột chứa các card thành tựu */
+.award-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Card nền trắng, có bóng mờ nhẹ để nổi lên trên nền xám */
+.award-card {
+    padding: 20px;
+    background: var(--white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* object-fit: contain = giấy khen hiện đủ, không bị cắt */
+.award-card img {
+    height: 260px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+/* Dòng chữ diễn giải dưới giấy khen */
+.caption {
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Tên giải (FIRST PRIZE, GOLD MEDAL...) in hoa, màu navy */
+.caption strong {
+    color: var(--navy);
+    letter-spacing: 1px;
+    text-transform: uppercase; /* tự đổi thành chữ in hoa */
+}
+
+/* =========================================================
+   9. FOOTER: thông tin liên hệ, nền navy chữ trắng
+   ========================================================= */
+.footer {
+    padding: 60px 20px;
+    text-align: center;
+    background: var(--navy);
+    color: var(--white);
+}
+
+.footer h2 {
+    color: var(--white);
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.footer .slogan {
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.footer a {
+    color: var(--white);
+}
+
+/* =========================================================
+   10. RESPONSIVE
+   Media query: khi màn hình nhỏ hơn mức width ghi trong ngoặc
+   thì dùng thêm các style bên trong để ghi đè style ở trên.
+   ========================================================= */
+
+/* Tablet (màn hình từ 992px trở xuống): lưới 4 hoặc 3 cột đổi thành 2 cột */
+@media (max-width: 992px) {
+    .chapter-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .award-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Điện thoại (màn hình từ 768px trở xuống) */
+@media (max-width: 768px) {
+    /* Chữ nhỏ lại một chút */
+    body {
+        font-size: 16px;
+    }
+
+    /* Tên và menu căn giữa, xếp thành 2 dòng */
+    .header {
+        justify-content: center;
+        padding: 15px 16px;
+    }
+
+    .menu {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    /* Giảm khoảng trống và cỡ tiêu đề cho vừa màn hình nhỏ */
+    .hero {
+        padding: 60px 16px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .story,
+    .chapters,
+    .chapter {
+        padding: 50px 16px;
+    }
+
+    .quote {
+        font-size: 21px;
+    }
+
+    /* Chữ và ảnh xếp dọc: chữ ở trên, ảnh ở dưới */
+    .story-row,
+    .story-row.reverse {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .story-row img {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .chapters h2 {
+        font-size: 28px;
+    }
+
+    .chapter-head h2 {
+        font-size: 32px;
+    }
+
+    .group-title {
+        font-size: 22px;
+    }
+
+    .activity h4 {
+        font-size: 19px;
+    }
+
+    /* Tất cả lưới về 1 cột */
+    .chapter-list,
+    .gallery,
+    .award-list {
+        grid-template-columns: 1fr;
+    }
+
+    /* Ảnh hiện đúng tỉ lệ gốc, không cắt nữa */
+    .gallery img,
+    .award-card img {
+        height: auto;
+    }
+}
