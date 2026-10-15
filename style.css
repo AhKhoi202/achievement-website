@@ -403,7 +403,8 @@ a.chapter-card:hover span {
 .button,
 .chapter-card,
 .award-card,
-.gallery img {
+.gallery img,
+.story-row img {
     transition: all 0.3s;
 }
 
@@ -414,8 +415,9 @@ a.chapter-card:hover span {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
-/* 3. Ảnh trong gallery phóng to nhẹ (to hơn 5%) */
-.gallery img:hover {
+/* 3. Ảnh phóng to nhẹ (to hơn 5%): ảnh gallery và ảnh hoạt động */
+.gallery img:hover,
+.story-row img:hover {
     transform: scale(1.05);
 }
 
