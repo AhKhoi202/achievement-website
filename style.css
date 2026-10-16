@@ -394,6 +394,90 @@ a.chapter-card:hover span {
 }
 
 /* =========================================================
+   TIMELINE GIẢI THƯỞNG (trang Achievements)
+   Đường dọc bên trái, mỗi năm có 1 chấm tròn,
+   danh sách giải nằm bên phải.
+   ========================================================= */
+
+/* Khung trắng bao quanh timeline */
+.timeline-box {
+    max-width: 1100px;
+    margin: 0 auto 60px;
+    padding: 30px 40px;
+    background: var(--white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Tiêu đề trong khung không cần cách trên nhiều */
+.timeline-box .group-title {
+    margin-top: 0;
+}
+
+/* Đường dọc: chính là viền trái của .timeline */
+.timeline {
+    border-left: 3px solid var(--navy-light);
+    padding-left: 40px;
+}
+
+/* Mỗi năm. position: relative để đặt chấm tròn theo khối này */
+.timeline-item {
+    position: relative;
+    padding-bottom: 30px;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+/* Chấm tròn nằm đè lên đường dọc.
+   ::before tạo thêm 1 phần tử "ảo" mà không cần viết thêm HTML */
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -51px;          /* kéo sang trái cho nằm giữa đường dọc */
+    top: 8px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;   /* bo tròn thành hình tròn */
+    background: var(--navy);
+    border: 3px solid var(--white);
+    box-shadow: 0 0 0 2px var(--navy); /* viền ngoài navy */
+}
+
+/* Số năm */
+.year {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 26px;
+    font-weight: bold;
+    color: var(--navy);
+}
+
+/* Bỏ dấu chấm đầu dòng mặc định của danh sách */
+.timeline-item ul {
+    list-style: none;
+}
+
+/* Mỗi giải cách nhau bằng 1 đường gạch đứt */
+.timeline-item li {
+    padding: 8px 0;
+    border-bottom: 1px dashed #dddddd;
+}
+
+.timeline-item li:last-child {
+    border-bottom: none;
+}
+
+/* Tên giải in hoa, màu navy, nằm trên 1 dòng riêng */
+.timeline-item li strong {
+    display: block;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--navy);
+}
+
+/* =========================================================
    HIỆU ỨNG KHI RÊ CHUỘT
    ========================================================= */
 
@@ -419,6 +503,44 @@ a.chapter-card:hover span {
 .gallery img:hover,
 .story-row img:hover {
     transform: scale(1.05);
+}
+
+/* =========================================================
+   HIỆU ỨNG KHI CUỘN TRANG (giống web gốc)
+   Cuộn tới đâu, nội dung trượt từ dưới lên và hiện dần tới đó.
+   - animation-timeline: view() = chạy hiệu ứng theo vị trí cuộn,
+     không cần JavaScript.
+   - animation-range: hiệu ứng chạy trong lúc phần tử đi vào màn hình.
+   - @supports: chỉ bật khi trình duyệt hỗ trợ. Trình duyệt cũ
+     vẫn hiện nội dung bình thường, chỉ không có hiệu ứng.
+   - Dùng "translate" (không dùng "transform") để không đè mất
+     hiệu ứng rê chuột ở trên.
+   ========================================================= */
+@keyframes hien-ra {
+    from {
+        opacity: 0;
+        translate: 0 60px;   /* bắt đầu thấp hơn 60px */
+    }
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+@supports (animation-timeline: view()) {
+    .quote,
+    .story-row,
+    .chapter-head,
+    .group-title,
+    .gallery-block p,
+    .timeline-item,
+    .chapter-card,
+    .award-card,
+    .gallery img {
+        animation: hien-ra linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 80%;
+    }
 }
 
 /* =========================================================
@@ -501,6 +623,23 @@ a.chapter-card:hover span {
 
     .activity h4 {
         font-size: 19px;
+    }
+
+    /* Timeline: thu hẹp khoảng trống, chấm tròn dời theo */
+    .timeline-box {
+        padding: 20px;
+    }
+
+    .timeline {
+        padding-left: 25px;
+    }
+
+    .timeline-item::before {
+        left: -36px;
+    }
+
+    .year {
+        font-size: 22px;
     }
 
     /* Tất cả lưới về 1 cột */
