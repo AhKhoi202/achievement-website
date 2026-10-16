@@ -199,6 +199,22 @@ h1, h2, h3 {
     max-width: 480px;      /* ảnh không to quá 480px */
 }
 
+/* Cụm nhiều ảnh thay cho 1 ảnh (vd: Đi thiện nguyện mùa lũ, 6 ảnh).
+   Grid chia 3 cột => 6 ảnh thành 2 hàng */
+.photo-grid {
+    flex: 1;
+    max-width: 480px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+/* Cắt ảnh thành ô vuông cho đều nhau */
+.photo-grid img {
+    aspect-ratio: 1 / 1;   /* rộng = cao */
+    object-fit: cover;
+}
+
 /* =========================================================
    6. DANH SÁCH 4 CHAPTER (card bấm để nhảy xuống)
    ========================================================= */
@@ -600,7 +616,8 @@ a.chapter-card:hover span {
         gap: 30px;
     }
 
-    .story-row img {
+    .story-row img,
+    .photo-grid {
         width: 100%;
         max-width: 100%;
     }
