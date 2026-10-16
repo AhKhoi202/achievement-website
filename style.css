@@ -395,86 +395,82 @@ a.chapter-card:hover span {
 
 /* =========================================================
    TIMELINE GIẢI THƯỞNG (trang Achievements)
-   Đường dọc bên trái, mỗi năm có 1 chấm tròn,
-   danh sách giải nằm bên phải.
+   Đường dọc ở giữa, năm nằm trong viên bo tròn navy,
+   card giải thưởng xếp so le 2 bên.
+   Card dùng lại style .award-card và .caption ở phần 8.
    ========================================================= */
 
-/* Khung trắng bao quanh timeline */
-.timeline-box {
+/* position: relative để vẽ đường dọc theo khối này */
+.timeline {
+    position: relative;
     max-width: 1100px;
     margin: 0 auto 60px;
-    padding: 30px 40px;
-    background: var(--white);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 
-/* Tiêu đề trong khung không cần cách trên nhiều */
-.timeline-box .group-title {
-    margin-top: 0;
-}
-
-/* Đường dọc: chính là viền trái của .timeline */
-.timeline {
-    border-left: 3px solid var(--navy-light);
-    padding-left: 40px;
-}
-
-/* Mỗi năm. position: relative để đặt chấm tròn theo khối này */
-.timeline-item {
-    position: relative;
-    padding-bottom: 30px;
-}
-
-.timeline-item:last-child {
-    padding-bottom: 0;
-}
-
-/* Chấm tròn nằm đè lên đường dọc.
+/* Đường dọc ở giữa.
    ::before tạo thêm 1 phần tử "ảo" mà không cần viết thêm HTML */
-.timeline-item::before {
+.timeline::before {
     content: "";
     position: absolute;
-    left: -51px;          /* kéo sang trái cho nằm giữa đường dọc */
-    top: 8px;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;   /* bo tròn thành hình tròn */
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    margin-left: -1px;    /* lùi 1px để đường nằm đúng chính giữa */
     background: var(--navy);
-    border: 3px solid var(--white);
-    box-shadow: 0 0 0 2px var(--navy); /* viền ngoài navy */
 }
 
-/* Số năm */
+/* Năm: viên bo tròn navy giống nút "My Resume", nằm giữa đường dọc */
 .year {
+    position: relative;   /* để nằm đè lên đường dọc */
     display: block;
-    margin-bottom: 8px;
-    font-size: 26px;
-    font-weight: bold;
-    color: var(--navy);
+    width: fit-content;   /* rộng vừa đủ chữ */
+    margin: 0 auto 25px;
+    padding: 6px 28px;
+    background: var(--navy);
+    color: var(--white);
+    border-radius: 30px;
+    font-size: 20px;
+    letter-spacing: 2px;
 }
 
-/* Bỏ dấu chấm đầu dòng mặc định của danh sách */
-.timeline-item ul {
-    list-style: none;
+/* Mỗi năm cách nhau 40px */
+.timeline-year {
+    margin-bottom: 40px;
 }
 
-/* Mỗi giải cách nhau bằng 1 đường gạch đứt */
-.timeline-item li {
-    padding: 8px 0;
-    border-bottom: 1px dashed #dddddd;
+/* Card chiếm nửa bên trái (trừ 40px chừa cho đường dọc) */
+.timeline-card {
+    position: relative;
+    width: calc(50% - 40px);
+    margin-bottom: 20px;
 }
 
-.timeline-item li:last-child {
-    border-bottom: none;
+/* Card thứ 2, 4, 6... (con lẻ, vì con đầu tiên là .year)
+   đẩy sang nửa bên phải */
+.timeline-card:nth-child(odd) {
+    margin-left: auto;
 }
 
-/* Tên giải in hoa, màu navy, nằm trên 1 dòng riêng */
-.timeline-item li strong {
-    display: block;
-    font-size: 14px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--navy);
+/* Chấm tròn nối card với đường dọc */
+.timeline-card::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -48px;         /* card bên trái: chấm nằm bên phải card */
+    width: 16px;
+    height: 16px;
+    margin-top: -8px;     /* lùi nửa chiều cao để nằm giữa card */
+    border-radius: 50%;
+    background: var(--navy);
+    border: 3px solid var(--gray-bg);
+    box-sizing: border-box; /* "*" ở đầu file không áp dụng cho ::before nên phải ghi lại */
+}
+
+/* Card bên phải: chấm nằm bên trái card */
+.timeline-card:nth-child(odd)::before {
+    right: auto;
+    left: -48px;
 }
 
 /* =========================================================
@@ -533,7 +529,7 @@ a.chapter-card:hover span {
     .chapter-head,
     .group-title,
     .gallery-block p,
-    .timeline-item,
+    .year,
     .chapter-card,
     .award-card,
     .gallery img {
@@ -625,21 +621,25 @@ a.chapter-card:hover span {
         font-size: 19px;
     }
 
-    /* Timeline: thu hẹp khoảng trống, chấm tròn dời theo */
-    .timeline-box {
-        padding: 20px;
-    }
-
-    .timeline {
-        padding-left: 25px;
-    }
-
-    .timeline-item::before {
-        left: -36px;
+    /* Timeline: đường dọc dời sang trái, tất cả card nằm bên phải */
+    .timeline::before {
+        left: 12px;
     }
 
     .year {
-        font-size: 22px;
+        margin-left: 0;
+    }
+
+    .timeline-card,
+    .timeline-card:nth-child(odd) {
+        width: auto;
+        margin-left: 40px;
+    }
+
+    .timeline-card::before,
+    .timeline-card:nth-child(odd)::before {
+        right: auto;
+        left: -36px;
     }
 
     /* Tất cả lưới về 1 cột */
