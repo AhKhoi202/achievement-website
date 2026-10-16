@@ -184,9 +184,14 @@ h1, h2, h3 {
     flex-direction: row-reverse;
 }
 
-/* flex: 1 để phần chữ và ảnh chia đều chiều ngang */
-.story-text {
-    flex: 1;
+/* Chia 50 / 50: phần chữ và phần ảnh mỗi bên rộng đúng một nửa.
+   flex: 1 1 0 = cùng bắt đầu từ 0 rồi chia đều chỗ trống.
+   min-width: 0 để nội dung dài không đẩy lệch tỉ lệ. */
+.story-text,
+.story-row > img,
+.photo-grid {
+    flex: 1 1 0;
+    min-width: 0;
 }
 
 /* Các đoạn văn cách nhau 16px */
@@ -194,16 +199,17 @@ h1, h2, h3 {
     margin-bottom: 16px;
 }
 
-.story-row img {
-    flex: 1;
-    max-width: 480px;      /* ảnh không to quá 480px */
+/* Khung ảnh tỉ lệ 4:3 (rộng 4, cao 3).
+   Mặc định ảnh lấp đầy khung, phần thừa bị cắt (cover).
+   Muốn kiểu khác thì thêm class fit-... ở mục "CLASS FIT ẢNH" bên dưới */
+.story-row > img {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
 }
 
 /* Cụm nhiều ảnh thay cho 1 ảnh (vd: Đi thiện nguyện mùa lũ, 6 ảnh).
    Grid chia 3 cột => 6 ảnh thành 2 hàng */
 .photo-grid {
-    flex: 1;
-    max-width: 480px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 8px;
@@ -382,6 +388,55 @@ a.chapter-card:hover span {
     color: var(--navy);
     letter-spacing: 1px;
     text-transform: uppercase; /* tự đổi thành chữ in hoa */
+}
+
+/* =========================================================
+   CLASS FIT ẢNH: chọn cách ảnh nằm trong khung
+   Gắn vào thẻ <img>, ví dụ:
+     <img src="images/abc.jpg" class="fit-contain" alt="...">
+   Dùng được cho mọi ảnh: ảnh hoạt động, photo-grid, gallery...
+   Có thể gắn 2 class cùng lúc: class="fit-cover fit-top"
+   (Đặt ở cuối các phần ảnh để luôn thắng style mặc định phía trên)
+   ========================================================= */
+
+/* Lấp đầy khung, cắt bớt phần thừa. Ảnh luôn đầy khung, không méo */
+img.fit-cover {
+    object-fit: cover;
+}
+
+/* Hiện đủ cả ảnh, không cắt. Chỗ trống quanh ảnh tô nền xám nhạt.
+   Hợp với giấy khen, ảnh chụp màn hình, ảnh có chữ */
+img.fit-contain {
+    object-fit: contain;
+    background: var(--gray-bg);
+}
+
+/* Kéo giãn cho vừa khít khung (ảnh có thể bị méo) */
+img.fit-fill {
+    object-fit: fill;
+}
+
+/* Khi bị cắt (cover): giữ phần TRÊN của ảnh, vd ảnh chân dung để không mất mặt */
+img.fit-top {
+    object-position: top;
+}
+
+/* Khi bị cắt (cover): giữ phần DƯỚI của ảnh */
+img.fit-bottom {
+    object-position: bottom;
+}
+
+/* Đổi tỉ lệ khung ảnh (mặc định ảnh hoạt động là 4:3) */
+img.frame-square {
+    aspect-ratio: 1 / 1;   /* vuông */
+}
+
+img.frame-wide {
+    aspect-ratio: 16 / 9;  /* ngang, kiểu màn hình */
+}
+
+img.frame-portrait {
+    aspect-ratio: 3 / 4;   /* dọc, kiểu ảnh chân dung */
 }
 
 /* =========================================================
@@ -616,10 +671,12 @@ a.chapter-card:hover span {
         gap: 30px;
     }
 
-    .story-row img,
+    /* Bỏ chia 50/50, mỗi phần rộng hết màn hình */
+    .story-text,
+    .story-row > img,
     .photo-grid {
+        flex: none;
         width: 100%;
-        max-width: 100%;
     }
 
     .chapters h2 {
