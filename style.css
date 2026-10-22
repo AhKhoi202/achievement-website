@@ -106,22 +106,26 @@ h1, h2, h3 {
 /* =========================================================
    4. HERO: phần giới thiệu đầu trang
    ========================================================= */
+/* Hero chia 2 cột (dùng lại .story-row): chữ bên trái, ảnh kỷ yếu bên phải */
 .hero {
-    padding: 100px 20px;
-    text-align: center;
+    padding: 80px 20px;
     background: var(--gray-bg);
 }
 
-/* Dòng "Hello, It's Yến Nhi here" */
+/* Dòng "Hello, It's Nhi Pham here." */
 .hero h1 {
-    font-size: 56px;
+    font-size: 48px;
     margin-bottom: 25px;
 }
 
-/* Đoạn giới thiệu: giới hạn 700px để dòng không quá dài */
+/* Khoảng cách giữa các đoạn giới thiệu */
 .hero p {
-    max-width: 700px;
-    margin: 0 auto 35px;   /* auto 2 bên để căn giữa */
+    margin-bottom: 16px;
+}
+
+/* Đẩy nút "My Resume" cách đoạn văn phía trên một chút */
+.hero .button {
+    margin-top: 15px;
 }
 
 /* Nút "My Resume" bo tròn */
@@ -219,6 +223,97 @@ h1, h2, h3 {
 .photo-grid img {
     aspect-ratio: 1 / 1;   /* rộng = cao */
     object-fit: cover;
+}
+
+/* Thêm class "two" để cụm ảnh chia 2 cột (hợp với 2 hoặc 4 ảnh) */
+.photo-grid.two {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* Dòng phụ đề in nghiêng dưới tên hoạt động */
+.subtitle {
+    font-style: italic;
+    color: var(--navy-light);
+}
+
+/* Khung tóm tắt kiểu CV: nền xám, viền trái navy */
+.highlights {
+    margin-top: 20px;
+    padding: 20px 25px;
+    background: var(--gray-bg);
+    border-left: 4px solid var(--navy);
+    font-size: 15px;
+}
+
+.highlights ul {
+    padding-left: 20px;    /* chừa chỗ cho dấu chấm đầu dòng */
+}
+
+.highlights li {
+    margin-bottom: 6px;
+}
+
+/* Khối chỉ có chữ (không ảnh): cột giữa trang, rộng tối đa 800px cho dễ đọc */
+.text-block {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.text-block h4 {
+    margin: 30px 0 10px;
+    font-size: 21px;
+    color: var(--navy);
+}
+
+.text-block p {
+    margin-bottom: 16px;
+}
+
+/* 2 logo đặt cạnh nhau (Khanh Phuong 2020 và 2025) */
+.logo-compare {
+    flex: 1 1 0;
+    min-width: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.logo-compare img {
+    aspect-ratio: 1 / 1;
+}
+
+/* Chữ chú thích dưới logo */
+.logo-compare figcaption {
+    margin-top: 8px;
+    text-align: center;
+    font-weight: bold;
+    color: var(--navy);
+}
+
+/* Khung video (iframe Google Drive), cùng tỉ lệ 4:3 với ảnh */
+.video-frame {
+    flex: 1 1 0;
+    min-width: 0;
+    aspect-ratio: 4 / 3;
+    border: 0;
+    background: #000000;
+}
+
+/* Catalog ảnh theo địa điểm (Chapter 2) */
+.catalog-item {
+    margin-bottom: 40px;
+}
+
+.catalog-item h4 {
+    margin-bottom: 12px;
+    font-size: 21px;
+    letter-spacing: 2px;
+    color: var(--navy);
+}
+
+/* Trong catalog, cụm ảnh trải hết chiều ngang (không chia 50/50) */
+.catalog .photo-grid {
+    max-width: none;
 }
 
 /* =========================================================
@@ -674,7 +769,9 @@ img.frame-portrait {
     /* Bỏ chia 50/50, mỗi phần rộng hết màn hình */
     .story-text,
     .story-row > img,
-    .photo-grid {
+    .photo-grid,
+    .logo-compare,
+    .video-frame {
         flex: none;
         width: 100%;
     }
