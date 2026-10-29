@@ -444,6 +444,17 @@ a.chapter-card:hover span {
     object-fit: cover;
 }
 
+/* Gallery truyện tranh: 2 cột, ảnh giữ nguyên tỉ lệ (không cắt)
+   để đọc được chữ trong khung thoại */
+.gallery.comics {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: start;    /* ảnh cao thấp khác nhau thì canh theo mép trên */
+}
+
+.gallery.comics img {
+    height: auto;
+}
+
 /* =========================================================
    8. CHAPTER 4: ACHIEVEMENTS (card giấy khen + chữ bên dưới)
    ========================================================= */
